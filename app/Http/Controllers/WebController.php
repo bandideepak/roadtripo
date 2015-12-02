@@ -444,8 +444,7 @@ class WebController extends Controller {
 			return \View::make('trips')->with('baseURL', $baseURL);
 		}		
 
-		$getTrip = Trip::getTripbyId($tripId);
-		
+		$getTrip = Trip::getTripbyId($tripId);				
 
 		$pitStops = $getTrip[0]->trip_object; 		
 		$pitStops = str_replace("'", "", $pitStops);		
@@ -494,7 +493,7 @@ class WebController extends Controller {
 		/* Check the key */		
 		if($userKey == ''){
 			$errorMessage = 'Key Required';
-			return \View::make('viewtrip')->with('pitStops', $pitStops)->with('errorMessage', '')->with('jsonPitStops', $jsonPitStops)->with('baseURL', $baseURL);		
+			return \View::make('viewtrip')->with('pitStops', $pitStops)->with('errorMessage', $errorMessage)->with('itineraryKey', $itineraryKey)->with('tripId', $tripId)->with('jsonPitStops', $jsonPitStops)->with('baseURL', $baseURL);		
 		} 
 		else if (Hash::check($userKey, $itineraryKey))
 		{
@@ -503,7 +502,7 @@ class WebController extends Controller {
 		}	
 		else{			
 			$errorMessage = 'Invalid Key';
-			return \View::make('viewtrip')->with('pitStops', $pitStops)->with('errorMessage', '')->with('jsonPitStops', $jsonPitStops)->with('baseURL', $baseURL);		
+			return \View::make('viewtrip')->with('pitStops', $pitStops)->with('errorMessage', $errorMessage)->with('itineraryKey', $itineraryKey)->with('tripId', $tripId)->with('jsonPitStops', $jsonPitStops)->with('baseURL', $baseURL);		
 		}		
 		
 		return \View::make('index')->with('pitStops', $pitStops)->with('itineraryKey', $itineraryKey)->with('tripId', $tripId)->with('jsonPitStops', $jsonPitStops)->with('baseURL', $baseURL);	    		    
