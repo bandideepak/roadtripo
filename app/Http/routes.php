@@ -17,12 +17,13 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('/',function(){
+/*Route::get('/',function(){
 	$baseURL = '../public/';
 	return view('auth.login',[])->with('baseURL', $baseURL);;
-});
+});*/
 
 /* =========== Static Page (As per requirements) ============ */
+Route::get('/', 'HomeController@index');
 
 Route::get('home', 'HomeController@index');
 
@@ -51,16 +52,16 @@ Route::post('deleteTrip', 'WebController@deleteTrip');
 
 Route::post('viewtrip', 'WebController@viewTrip');
 
+Route::get('checkKey/{itineraryKey}', 'WebController@checkKey');
+
 /* =========== API Request ============ */
 
-Route::get('plantrip/{tripStart}/{tripEnd}', 'RestController@planTripLocations');
+/*Route::get('plantrip/{tripStart}/{tripEnd}', 'RestController@planTripLocations');
 
 Route::get('places/{latlng}/{placetype}', 'RestController@placesNearbyCity');
 
 Route::get('allTrips', 'RestController@allTrips');
 
-Route::get('checkKey/{itineraryKey}', 'RestController@checkKey');
-
 Route::any('viewtrip/{itineraryKey}/{tripId}', 'RestController@apiviewTrip');
 
-Route::any('trip/{tripId}', 'RestController@tripById');
+Route::any('trip/{tripId}', 'RestController@tripById');*/

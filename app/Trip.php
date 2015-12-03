@@ -14,6 +14,7 @@ class Trip extends Model {
 	protected $table = 'trips';	
 
 	public static function checkKey($itineraryKey){		
+		var_dump($itineraryKey);
 		return \DB::table('trips')		        		        
 		        ->where('trip_key', '=', $itineraryKey)
 		        ->select('trip_key')	        

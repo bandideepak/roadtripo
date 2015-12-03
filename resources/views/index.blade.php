@@ -51,7 +51,7 @@
 				<div class="pitstop-header">
 					<img src="{{$baseURL}}imgs/nearby.png">
 					<h4>Your Pitstop's</h4>
-					<a href="#" class="add-pitstop no-lg">Add</a>
+					<!-- <a href="#" class="add-pitstop no-lg">Add</a> -->
 				</div>				
 			</div>
 			<div class="col-xl-10 col-lg-9 col-md-9 col-sm-8 np">
@@ -196,7 +196,7 @@
 							<div class="trip-controls">
 								<?php if (isset($pitStops)) : ?>
 									<?php if(sizeof($pitStops) < 3): ?>
-										<p class="err-msg">Note : Deleting a pitstop will delete the Trip</p>
+										<p class="err-msg">Note : Removing any one pitstop will delete the Trip</p>
 									<?php endif ?>
 								<?php endif ?>
 								<?php if(isset($itineraryKey) && isset($tripId)): ?>
@@ -681,7 +681,8 @@ $('.save-trip').hide();
 	            data: { itineraryKey:itineraryKey },
 	            success: function(data)
 	            {
-	            	if(data != 0){
+	            	alert(data);
+	            	if(data == 'Valid Key'){
 	            		$('.check-key').hide();
 	            		$('.save-trip').show();
 	            		$("#itineraryKey").prop('disabled', true);

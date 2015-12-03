@@ -948,4 +948,18 @@ class WebController extends Controller {
 		$baseURL = '../public/';	    		    
 		return \View::make('viewtrip')->with('pitStops', $pitStops)->with('tripId', $tripId)->with('itineraryKey', $itineraryKey)->with('baseURL', $baseURL);		
 	}
+
+	public function checkKey($itineraryKey){
+		if(isset($_GET['itineraryKey'])){
+			$itineraryKey = $_GET['itineraryKey'];				
+		}		
+
+		$itineraryKey = Hash::make($itineraryKey);
+		$checkItineraryKey = Trip::checkKey($itineraryKey);
+		
+		if($checkItineraryKey){
+			return 0;
+		}
+		return "Valid Key";
+	}
 }

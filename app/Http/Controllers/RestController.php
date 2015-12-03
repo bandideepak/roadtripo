@@ -415,7 +415,7 @@ class RestController extends Controller {
 
 		$itineraryKey = Hash::make($itineraryKey);
 		$checkItineraryKey = Trip::checkKey($itineraryKey);
-		
+				
 		if($checkItineraryKey){
 			return 0;
 		}
