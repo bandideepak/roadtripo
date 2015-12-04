@@ -56,7 +56,7 @@ Route::get('checkKey/{itineraryKey}', 'WebController@checkKey');
 
 /* =========== API Request ============ */
 
-/*Route::get('plantrip/{tripStart}/{tripEnd}', 'RestController@planTripLocations');
+Route::get('plantrip/{tripStart}/{tripEnd}', 'RestController@planTripLocations');
 
 Route::get('places/{latlng}/{placetype}', 'RestController@placesNearbyCity');
 
@@ -64,4 +64,4 @@ Route::get('allTrips', 'RestController@allTrips');
 
 Route::any('viewtrip/{itineraryKey}/{tripId}', 'RestController@apiviewTrip');
 
-Route::any('trip/{tripId}', 'RestController@tripById');*/
+Route::any('trip/{tripId}', 'RestController@tripById');
